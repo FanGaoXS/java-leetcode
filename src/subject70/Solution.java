@@ -1,4 +1,4 @@
-package cn.fangaoxs.day12.subject70;
+package subject70;
 
 /**
  * Created with IntelliJ IDEA.
