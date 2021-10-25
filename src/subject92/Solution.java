@@ -15,15 +15,15 @@ import java.util.HashMap;
 public class Solution {
 
     public static void main(String[] args) {
-        ListNode root = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        ListNode root = new ListNode(1, new ListNode(2, new ListNode(3,new ListNode(4,new ListNode(5)))));
         int left = 2;
         int right = 4;
 //        ListNode result = reverseBetween1(root, left, right);
-        /*ListNode result2 = reverseBetween2(root, left, right);
+        ListNode result2 = reverseBetween3(root, left, right);
         while (result2!=null){
             System.out.println("result.val = " + result2.val);
             result2 = result2.next;
-        }*/
+        }
     }
 
     /*public static ListNode reverseBetween1(ListNode head, int left, int right) {
@@ -86,6 +86,33 @@ public class Solution {
         }
         return nodeTemp.next;
     }
+
+    //map
+    public static ListNode reverseBetween3(ListNode head, int left, int right) {
+        if (head.next == null || left == right) return head;
+        ArrayList<ListNode> nodes = new ArrayList<>();
+        //迭代链表并且存入ArrayList
+        while (head != null) {
+            nodes.add(head);
+            head = head.next;
+        }
+        //创建新的链表头节点
+        ListNode resultNode = new ListNode(-1);
+        ListNode tempNode = resultNode;
+        for (int i = 0; i < nodes.size(); i++) {
+            if (i>=left-1 && i<=right-1){
+                //如果在left到right这个范围了，则取ArrayList中对应的反向
+                resultNode.next = nodes.get(right-1-(i-(left-1)));
+            } else {
+                //否则正常添加
+                resultNode.next = nodes.get(i);
+            }
+            resultNode = resultNode.next;
+        }
+        resultNode.next = null;
+        return tempNode.next;
+    }
+
 
 }
 
