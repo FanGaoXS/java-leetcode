@@ -26,6 +26,20 @@ public class Solution {
         return false;
     }
 
+    public boolean isSymmetric2(TreeNode root) {
+        if (root == null) return false;
+        return check2(root.left,root.right);
+    }
+
+    public boolean check2(TreeNode leftNode,TreeNode rightNode){
+        if (leftNode==null&&rightNode==null) return true;
+        if (leftNode==null||rightNode==null) return false;
+        if (leftNode.val == rightNode.val) {
+            return check2(leftNode.left,rightNode.right)&&check2(leftNode.right,rightNode.left);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1,new TreeNode(2,null,new TreeNode(3)),new TreeNode(2,null,new TreeNode(3)));
         boolean result = isSymmetric(root);
