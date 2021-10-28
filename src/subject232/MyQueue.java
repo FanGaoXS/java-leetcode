@@ -1,4 +1,4 @@
-package cn.fangaoxs.day16.subject232;
+package subject232;
 
 import java.util.Stack;
 
@@ -11,7 +11,7 @@ import java.util.Stack;
  */
 class MyQueue {
 
-    
+
     private final Stack<Integer> stackInput;  //输入栈
     private final Stack<Integer> stackOutput;  //输出栈
 
