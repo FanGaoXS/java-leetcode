@@ -1,4 +1,4 @@
-package cn.fangaoxs.day16.subject155;
+package subject155;
 
 import java.util.Stack;
 
